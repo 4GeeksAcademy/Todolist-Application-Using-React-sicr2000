@@ -35,10 +35,12 @@
 		"html-loader": "^3.0.1",
 		"html-webpack-plugin": "^5.5.0",
 		"parse-github-url": "^1.0.2",
+		"postcss": "^8.4.29",
+		"postcss-loader": "^7.3.3",
 		"remote-origin-url": "^2.0.0",
 		"style-loader": "^3.3.1",
 		"webpack": "^5.65.0",
-		"webpack-cli": "^4.9.1",
+		"webpack-cli": "^4.10.0",
 		"webpack-dev-server": "^4.6.0"
 	},
 	"babel": {
@@ -57,6 +59,8 @@
 		]
 	},
 	"dependencies": {
+		"@fortawesome/free-solid-svg-icons": "^6.4.2",
+		"@fortawesome/react-fontawesome": "^0.2.0",
 		"prop-types": "^15.7.2",
 		"query-string": "^7.0.1",
 		"react": "^17.0.2",

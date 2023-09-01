@@ -1,12 +1,43 @@
+body {
+  background-image: url("https://img.freepik.com/fotos-premium/textura-papel-hoja-papel-blanco_3248-702.jpg");
+  background-size: cover;
+  margin-top: 100px;
+  margin-left: 500px;
+  margin-right: 500px;
+  font-size: 150%;
+  font-family: "Coming Soon", cursive;
+}
 
-/* 
+ul {
+  padding: 0;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+ul li {
+  border: 1px solid gray;
+  list-style: none;
+  padding: 20px;
+  background-color: white;
+}
 
-*/
+input {
+  border: none;
+  width: 100%;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+.icon-delete {
+  transition-property: opacity;
+  transition-duration: 100ms;
+  transition-timing-function: linear;
+  opacity: 0;
+}
+li:hover > .icon-delete {
+  opacity: 100;
+}
+
+h1 {
+  font-size: 260%;
+}

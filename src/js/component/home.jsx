@@ -1,26 +1,65 @@
-import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 //create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+  const [inputValue, setInputValue] = useState("");
+  const [todoList, setTodoList] = useState([]);
+
+  return (
+    <>
+      <div>
+        <h1 className="text-center">Todo List</h1>
+        <ul>
+          <li>
+            <input
+              type="text"
+              onChange={(event) => setInputValue(event.target.value)}
+              onKeyUp={(event) => {
+                if (event.key === "Enter" && inputValue != "") {
+                  setTodoList(todoList.concat(inputValue));
+                  setInputValue("");
+                }
+              }}
+              value={inputValue}
+              placeholder="Write new task here"
+            />
+          </li>
+          {todoList.map((item, index) => (
+            <li
+              className="d-flex justify-content-between"
+              key={`todoList${index}`}
+            >
+              <div>{item}</div>
+              <div className="icon-delete">
+                <FontAwesomeIcon
+                  icon={faXmark}
+                  style={{ color: "#ff0000" }}
+                  onClick={() =>
+                    setTodoList(
+                      todoList.filter(
+                        (_e, currentIndex) => index != currentIndex
+                      )
+                    )
+                  }
+                />
+              </div>
+            </li>
+          ))}
+        </ul>
+        <div className="d-flex justify-content-end">
+          <div>
+            {todoList.length === 0
+              ? "No tasks pending"
+              : `${todoList.length} ${
+                  todoList.length === 1 ? "task" : "tasks"
+                } pending`}
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Home;
